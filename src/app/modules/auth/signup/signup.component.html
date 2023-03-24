@@ -1,0 +1,58 @@
+<h4>Registro</h4>
+<form class="col" #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <div class="col">
+        <!-- nombre de usuario -->
+        <div class="row">
+            <div class="example-container">
+                <mat-form-field hintLabel="Max 12 characters" appearance="fill" class="font">
+                    <mat-label class="tx">Ingresa tu nombre</mat-label><br />
+                    <input name="fullName" ngModel matInput #input maxlength="100" placeholder="Ex. Nougat" required>
+                    <mat-hint class="font" align="end">{{ input.value.length }}/12</mat-hint>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <!-- correo de usuario -->
+        <div class="row">
+            <div class="example-container">
+                <mat-form-field appearance="fill" class="full-width">
+                    <mat-label>Enter your email</mat-label>
+                    <input name="email" ngModel matInput placeholder="pat@example.com" required>
+                    <mat-error *ngIf="email.invalid">{{ getErrorMessage() }}</mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <!-- clave de usuario -->
+        <div class="row">
+            <div class="example-container">
+                <mat-form-field appearance="fill">
+                    <mat-label>Enter your password</mat-label>
+                    <input name="password" ngModel matInput [type]="hide ? 'password' : 'text'" required>
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide">
+                        <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+                    </button>
+                </mat-form-field>
+            </div>
+        </div>
+        <!-- boton de enviar -->
+        <div class="row btn text-white">
+            <button mat-raised-button>Registrarse</button>
+        </div>
+    </div>
+</form>
+    <!-- boton ingresa aqui -->
+    <div class="container">
+        <div class="row justify-content-center my-4">
+            <div class="col-8 col-sm-8">
+                <div class="alert" role="alert">
+                    ¿Ya tienes una cuenta?
+                    <!-- <a href="/login"> ingresa aqui</a> -->
+                    <button class="btn btn-danger" id="btnIngreso" routerLink="/login">
+                        Ingresa aqui
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>

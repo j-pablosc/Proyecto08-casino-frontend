@@ -1,0 +1,45 @@
+<h4>Iniciar sesion</h4>
+<form class="col" #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <div class="col">
+        <!-- correo de usuario -->
+        <div class="row">
+            <div class="example-container">
+                <mat-form-field appearance="fill" class="full-width">
+                    <mat-label>Enter your email</mat-label>
+                    <input name="email" matInput ngModel placeholder="pat@example.com" required>
+                    <mat-error *ngIf="email.invalid">{{ getErrorMessage() }}</mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <!-- clave de usuario -->
+        <div class="row">
+            <div class="example-container">
+                <mat-form-field appearance="fill">
+                    <mat-label>Enter your password</mat-label>
+                    <input name="password" matInput ngModel [type]="hide ? 'password' : 'text'" required>
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide">
+                        <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+                    </button>
+                </mat-form-field>
+            </div>
+        </div>
+        <!-- boton de enviar -->
+        <div class="row btn text-white">
+            <button mat-raised-button>Iniciar sesiòn</button>
+        </div>
+    </div>
+</form>
+<!-- boton ingresa aqui -->
+<div class="container">
+    <div class="row justify-content-center my-4">
+        <div class="col-8 col-sm-8">
+            <div class="alert " role="alert">
+                ¿No tienes una cuenta?
+                <!-- <a href="/login"> ingresa aqui</a> -->
+                <button class="btn btn-danger" id="btnIngreso" routerLink="/signup">Registrate aqui</button>
+            </div>
+        </div>
+    </div>
+</div>
