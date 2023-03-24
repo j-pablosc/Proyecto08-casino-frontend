@@ -1,4 +1,4 @@
 export class GlobalConstants{
-    public static apiURL: string = "http://localhost:3500/api/v1";
+    public static apiURL: string = "https://dark-teal-hippo-wrap.cyclic.app/api/v1";
    
 }
